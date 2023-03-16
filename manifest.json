@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Traffic Score",
+    "version": "1.0",
+    "description": "Display traffic score for the current domain in the Chrome badge",
+    "icons": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "permissions": [
+      "tabs",
+      "storage",
+      "activeTab",
+      "http://*/*",
+      "https://*/*"
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_icon": "icon48.png"
+    },
+    "web_accessible_resources": [
+      "trafficStats.json"
+    ]
+  }
+  
